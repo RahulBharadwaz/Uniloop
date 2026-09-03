@@ -47,8 +47,13 @@ app.use('/api/', apiLimiter)
 // ─── CORS ───────────────────────────────────────────────────────
 app.use(cors({
     origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
         const allowed = process.env.CORS_ORIGIN?.split(',').map(s => s.trim()) || [];
-        if (!origin || allowed.includes(origin)) {
+        const isAllowed = allowed.includes(origin) || 
+                          origin.includes('uniloop.me') || 
+                          origin.includes('vercel.app') || 
+                          origin.includes('localhost');
+        if (isAllowed) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));

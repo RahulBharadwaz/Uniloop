@@ -10,7 +10,19 @@ let io;
 export const initializeSocket = (server) => {
     io = new Server(server, {
         cors: {
-            origin: process.env.CORS_ORIGIN,
+            origin: function (origin, callback) {
+                if (!origin) return callback(null, true);
+                const allowed = process.env.CORS_ORIGIN?.split(',').map(s => s.trim()) || [];
+                const isAllowed = allowed.includes(origin) || 
+                                  origin.includes('uniloop.me') || 
+                                  origin.includes('vercel.app') || 
+                                  origin.includes('localhost');
+                if (isAllowed) {
+                    callback(null, true);
+                } else {
+                    callback(new Error('Not allowed by CORS'));
+                }
+            },
             credentials: true
         }
     });
