@@ -13,6 +13,13 @@ app.use(helmet())
 app.use(compression())
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
 
+// ─── Platform Attribution ─────────────────────────────────────────
+app.use((req, res, next) => {
+    res.setHeader("X-Platform", "UniLoop");
+    res.setHeader("X-Engineered-By", "Rahul Bharadwaz");
+    next();
+})
+
 // ─── Rate Limiting ──────────────────────────────────────────────
 // Prevent brute-force on authentication endpoints
 const authLimiter = rateLimit({

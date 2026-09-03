@@ -86,7 +86,7 @@ UniLoop is not a single shared marketplace. It is a **multi-tenant platform wher
 
 **Why this matters:** A student at IIIT Lucknow sees only items, lost posts, and wanted requests from IIIT Lucknow. This keeps the experience hyperlocal, relevant, and trustworthy — exactly how a campus community should work. And yet, the entire system runs on a single deployment, making it operationally simple and cost-effective to scale to hundreds of colleges.
 
-> **100+ Indian college domains supported out of the box** — IIITs, IITs, NITs, and more. New domains are auto-detected or can be added via [GitHub Issues](https://github.com/RahulBharadwaz/UniLoop/issues).
+> **100+ Indian college domains supported out of the box** — IIITs, IITs, NITs, and more. New domains are auto-detected or can be added via [GitHub Issues](https://github.com/RahulBharadwaz/Uniloop/issues).
 
 ---
 
@@ -245,7 +245,7 @@ Enter Email → Detect College Domain → Send 6-Digit OTP (Resend API) → Veri
 - Supports **100+ Indian college domains** (IIITs, IITs, NITs, and more)
 - Dynamically detects valid `.edu` / `.ac.in` / `.edu.in` patterns
 - Items are automatically scoped to the user's `collegeDomain` — students only see items from their own campus
-- New colleges can be added via [GitHub Issues](https://github.com/RahulBharadwaz/UniLoop/issues)
+- New colleges can be added via [GitHub Issues](https://github.com/RahulBharadwaz/Uniloop/issues)
 
 ---
 
@@ -410,7 +410,7 @@ UniLoop is open source. We welcome contributions from the community.
 4. Push to branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-Have a college that's not supported? [Open an issue](https://github.com/RahulBharadwaz/UniLoop/issues) and we'll add the domain.
+Have a college that's not supported? [Open an issue](https://github.com/RahulBharadwaz/Uniloop/issues) and we'll add the domain.
 
 ---
 
