@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ShareNet
+        working-directory: uniloop-frontend
 
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: ShareNet/package-lock.json
+          cache-dependency-path: uniloop-frontend/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: professional-backend-structure
+        working-directory: uniloop-backend
 
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: professional-backend-structure/package-lock.json
+          cache-dependency-path: uniloop-backend/package-lock.json
 
       - name: Install dependencies
         run: npm ci

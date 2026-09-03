@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="ShareNet/public/favicon.svg" alt="UniLoop" width="80" />
+  <img src="uniloop-frontend/public/favicon.svg" alt="UniLoop" width="80" />
 </p>
 
 <h1 align="center">UniLoop</h1>
@@ -277,7 +277,7 @@ Enter Email → Detect College Domain → Send 6-Digit OTP (Resend API) → Veri
 
 ```
 UniLoop/
-├── ShareNet/                          # Frontend (React + Vite)
+├── uniloop-frontend/                  # Frontend (React + Vite)
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── ui/                    # Design system: Button, Card, Modal, Badge, Avatar, TrustScore, Loader
@@ -292,7 +292,7 @@ UniLoop/
 │   │   └── lib/                       # Axios instance (interceptors, refresh logic), Socket.IO client
 │   └── public/                        # Static assets, SPA redirect rules
 │
-└── professional-backend-structure/    # Backend (Express + MongoDB)
+└── uniloop-backend/                   # Backend (Express + MongoDB)
     └── src/
         ├── controllers/               # 10 controller files — all business logic
         ├── models/                    # 12 Mongoose schemas with indexes and virtuals
@@ -382,7 +382,7 @@ UniLoop/
 ### Backend
 
 ```bash
-cd professional-backend-structure
+cd uniloop-backend
 npm install
 cp .env.example .env    # Fill in MongoDB URI, JWT secrets, Cloudinary, Resend keys
 mkdir -p public/temp
@@ -392,7 +392,7 @@ npm run dev              # Runs on http://localhost:8000
 ### Frontend
 
 ```bash
-cd ShareNet
+cd uniloop-frontend
 npm install
 cp .env.example .env    # Set VITE_API_URL=http://localhost:8000/api/v1
 npm run dev              # Runs on http://localhost:5173
