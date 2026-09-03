@@ -8,6 +8,9 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
+  "engines": {
+    "node": ">=18.0.0 <=22.x"
+  },
   "keywords": [
     "backend",
     "javascript"
