@@ -1,3 +1,3 @@
-export const DB_NAME = 'sharenet'
+export const DB_NAME = 'uniloop'
 
 

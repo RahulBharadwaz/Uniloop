@@ -8,15 +8,22 @@ const generateOTP = () => {
 }
 
 const sendOTPEmail = async (email, otp) => {
+    // In production, RESEND_FROM must be set to a verified domain sender
+    // e.g. "UniLoop <noreply@uniloop.me>"
+    const fromAddress = process.env.RESEND_FROM
+    if (!fromAddress) {
+        throw new Error("RESEND_FROM environment variable is not configured. Set it to your verified domain sender (e.g. UniLoop <noreply@yourdomain.me>)")
+    }
+
     const { data, error } = await resend.emails.send({
-        from: process.env.RESEND_FROM || "ShareNet <onboarding@resend.dev>",
+        from: fromAddress,
         to: [email],
-        subject: "ShareNet - Verify Your College Email",
+        subject: "UniLoop - Verify Your College Email",
         html: `
             <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 480px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;">
                 <div style="background: linear-gradient(135deg, #2563eb, #1e40af); padding: 32px; text-align: center;">
-                    <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">ShareNet</h1>
-                    <p style="color: #bfdbfe; margin: 8px 0 0; font-size: 14px;">Campus Sharing Network</p>
+                    <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">UniLoop</h1>
+                    <p style="color: #bfdbfe; margin: 8px 0 0; font-size: 14px;">Campus Circular Sharing Network</p>
                 </div>
                 <div style="padding: 32px;">
                     <h2 style="color: #1f2937; margin: 0 0 8px; font-size: 20px;">Verify Your Email</h2>
@@ -32,7 +39,7 @@ const sendOTPEmail = async (email, otp) => {
                 </div>
                 <div style="background: #f9fafb; padding: 16px; text-align: center; border-top: 1px solid #e5e7eb;">
                     <p style="color: #9ca3af; margin: 0; font-size: 12px;">
-                        &copy; ${new Date().getFullYear()} ShareNet. If you didn't request this, please ignore this email.
+                        &copy; ${new Date().getFullYear()} UniLoop. If you didn't request this, please ignore this email.
                     </p>
                 </div>
             </div>
