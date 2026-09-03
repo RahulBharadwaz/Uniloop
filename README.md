@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://sharenet-web-1.onrender.com"><img src="https://img.shields.io/badge/🚀_LIVE_DEMO-sharenet--web--1.onrender.com-7c3aed?style=for-the-badge" alt="Live Demo" /></a>
+  <a href="https://uniloop.me"><img src="https://img.shields.io/badge/🚀_LIVE_DEMO-uniloop.me-181ED9?style=for-the-badge" alt="Live Demo" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React" />
   <img src="https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white" alt="MongoDB" />
   <img src="https://img.shields.io/badge/Socket.IO-Real--time-010101?logo=socket.io&logoColor=white" alt="Socket.IO" />
@@ -27,7 +27,7 @@
 
 ## 🔗 Live Demo & Access
 
-> **Live App:** [https://sharenet-web-1.onrender.com](https://sharenet-web-1.onrender.com)
+> **Live App:** [https://uniloop.me](https://uniloop.me)
 
 > **Note for Judges & Evaluators:** Gmail (`@gmail.com`) sign-up is temporarily enabled for evaluation and testing purposes. This allows judges to register and explore the full platform without needing a `.edu` or `.ac.in` email. This access will be disabled after the evaluation period. In production, only verified college email domains are permitted.
 
@@ -54,7 +54,7 @@ Unlike generic platforms, UniLoop enforces trust at the **infrastructure level**
 
 ## One Platform, Every Campus — Fully Isolated
 
-ShareNet is not a single shared marketplace. It is a **multi-tenant platform where every college operates as an independent, isolated ecosystem** — all from a single deployment.
+UniLoop is not a single shared marketplace. It is a **multi-tenant platform where every college operates as an independent, isolated ecosystem** — all from a single deployment.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -86,7 +86,7 @@ ShareNet is not a single shared marketplace. It is a **multi-tenant platform whe
 
 **Why this matters:** A student at IIIT Lucknow sees only items, lost posts, and wanted requests from IIIT Lucknow. This keeps the experience hyperlocal, relevant, and trustworthy — exactly how a campus community should work. And yet, the entire system runs on a single deployment, making it operationally simple and cost-effective to scale to hundreds of colleges.
 
-> **100+ Indian college domains supported out of the box** — IIITs, IITs, NITs, and more. New domains are auto-detected or can be added via [GitHub Issues](https://github.com/Pranilash/ShareNet-Web/issues).
+> **100+ Indian college domains supported out of the box** — IIITs, IITs, NITs, and more. New domains are auto-detected or can be added via [GitHub Issues](https://github.com/RahulBharadwaz/UniLoop/issues).
 
 ---
 
@@ -148,7 +148,7 @@ Every item listing supports one of three modes:
 
 ### 3. Lost & Found with Multi-Step Verification
 
-This isn't a simple "post and hope" system. ShareNet implements a **structured verification pipeline**:
+This isn't a simple "post and hope" system. UniLoop implements a **structured verification pipeline**:
 
 ```
 Report → Claim Submitted → Verification Questions Sent → Answers Reviewed
@@ -160,7 +160,7 @@ Report → Claim Submitted → Verification Questions Sent → Answers Reviewed
 - **Dedicated Chat:** Once verified, a rich chat channel opens with image sharing, GPS location, and meetup proposals.
 - **Resolution Tracking:** Posts are marked as resolved, providing campus-wide recovery statistics.
 
-**Why this matters:** On most campuses, lost items are posted in WhatsApp groups with zero verification. Anyone can claim anything. ShareNet adds accountability.
+**Why this matters:** On most campuses, lost items are posted in WhatsApp groups with zero verification. Anyone can claim anything. UniLoop adds accountability.
 
 ---
 
@@ -181,7 +181,7 @@ A reverse-marketplace where **demand creates supply**:
 
 ### 5. Event-Driven Real-Time Architecture
 
-ShareNet uses **Socket.IO** for a fully event-driven real-time layer:
+UniLoop uses **Socket.IO** for a fully event-driven real-time layer:
 
 | Feature | Implementation |
 |---------|---------------|
@@ -232,7 +232,7 @@ REQUESTED → ACCEPTED → AGREEMENT_PROPOSED → ACTIVE → RETURN_PENDING → 
 | **Overdue Alerts** | Automatic notifications if return date passes |
 | **Dispute Flow** | Either party can raise a dispute with explanation |
 
-**Why this matters:** Unstructured sharing (WhatsApp, word of mouth) has no accountability. ShareNet's lifecycle creates a paper trail that protects both parties.
+**Why this matters:** Unstructured sharing (WhatsApp, word of mouth) has no accountability. UniLoop's lifecycle creates a paper trail that protects both parties.
 
 ---
 
@@ -245,7 +245,7 @@ Enter Email → Detect College Domain → Send 6-Digit OTP (Resend API) → Veri
 - Supports **100+ Indian college domains** (IIITs, IITs, NITs, and more)
 - Dynamically detects valid `.edu` / `.ac.in` / `.edu.in` patterns
 - Items are automatically scoped to the user's `collegeDomain` — students only see items from their own campus
-- New colleges can be added via [GitHub Issues](https://github.com/Pranilash/ShareNet-Web/issues)
+- New colleges can be added via [GitHub Issues](https://github.com/RahulBharadwaz/UniLoop/issues)
 
 ---
 
@@ -276,7 +276,7 @@ Enter Email → Detect College Domain → Send 6-Digit OTP (Resend API) → Veri
 ## Project Structure
 
 ```
-ShareNet-Web/
+UniLoop/
 ├── ShareNet/                          # Frontend (React + Vite)
 │   ├── src/
 │   │   ├── components/
@@ -410,7 +410,7 @@ UniLoop is open source. We welcome contributions from the community.
 4. Push to branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-Have a college that's not supported? [Open an issue](https://github.com/Pranilash/ShareNet-Web/issues) and we'll add the domain.
+Have a college that's not supported? [Open an issue](https://github.com/RahulBharadwaz/UniLoop/issues) and we'll add the domain.
 
 ---
 
