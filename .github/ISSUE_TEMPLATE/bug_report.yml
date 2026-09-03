@@ -1,0 +1,29 @@
+name: "🐛 Bug Report"
+description: "Report an issue or unexpected behavior in UniLoop"
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      placeholder: "A clear description of what happened."
+    validations:
+      required: true
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+  - type: input
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      placeholder: "What should have happened."
+    validations:
+      required: true

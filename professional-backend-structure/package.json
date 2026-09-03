@@ -12,7 +12,7 @@
     "backend",
     "javascript"
   ],
-  "author": "Rahul",
+  "author": "Rahul Bharadwaz",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

@@ -1,0 +1,30 @@
+name: "🎓 Request College Domain"
+description: "Request to add a new university or college email domain to UniLoop"
+title: "[College Request]: "
+labels: ["college-request", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us expand UniLoop to more campuses! Fill in the details below.
+  - type: input
+    id: college_name
+    attributes:
+      label: College / University Name
+      placeholder: "e.g., Indian Institute of Technology Bombay"
+    validations:
+      required: true
+  - type: input
+    id: email_domain
+    attributes:
+      label: Email Domain
+      placeholder: "e.g., iitb.ac.in"
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Campus Location
+      placeholder: "e.g., Mumbai, Maharashtra"
+    validations:
+      required: false

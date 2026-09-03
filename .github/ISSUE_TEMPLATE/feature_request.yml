@@ -1,0 +1,19 @@
+name: "💡 Feature Request"
+description: "Suggest an idea or improvement for UniLoop"
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: feature_summary
+    attributes:
+      label: Feature Description
+      placeholder: "Describe the new feature or improvement you would like to see."
+    validations:
+      required: true
+  - type: textarea
+    id: problem_solved
+    attributes:
+      label: Problem It Solves
+      placeholder: "What campus problem or user pain point does this address?"
+    validations:
+      required: false

@@ -68,6 +68,10 @@ import claimChatRoutes from "./routes/claimChat.route.js"
 import wantedItemRoutes from "./routes/wantedItem.route.js"
 import offerChatRoutes from "./routes/offerChat.route.js"
 
+// Health Check Endpoints
+app.get("/health", (req, res) => res.status(200).json({ status: "healthy", timestamp: new Date().toISOString() }));
+app.get("/", (req, res) => res.status(200).json({ name: "UniLoop API", status: "online", version: "1.0.0" }));
+
 // Routes declaration
 app.use("/api/v1/users", authLimiter, userRoutes)
 app.use("/api/v1/items", itemRoutes)
