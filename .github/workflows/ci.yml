@@ -1,0 +1,60 @@
+name: CI — Lint & Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  frontend:
+    name: Frontend — Build & Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ShareNet
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ShareNet/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: https://uniloop-api.onrender.com/api/v1
+          VITE_SOCKET_URL: https://uniloop-api.onrender.com
+
+  backend:
+    name: Backend — Dependency Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: professional-backend-structure
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: professional-backend-structure/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Security audit
+        run: npm audit --audit-level=critical || true

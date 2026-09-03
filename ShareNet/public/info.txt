@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Montserrat-ExtraBold
+font link: https://fonts.google.com/specimen/Montserrat
+font author: Julieta Ulanovsky
+font author site: http://www.zkysky.com.ar/
+Slogan Font: Fanwood Text.otf
+
+icon designer: undefined
+icon designer link: undefined
+        
+{"bg":"#E6E6F1","icon-gradient-0":"#181B80","icon-gradient-1":"#181ED9","font":"#090A35","slogan":"#1d1e49"}
+      
