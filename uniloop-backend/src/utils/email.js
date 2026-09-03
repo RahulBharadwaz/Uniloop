@@ -1,21 +1,27 @@
 import { Resend } from "resend"
 import crypto from "crypto"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+let resendClient = null;
+const getResendClient = () => {
+    if (!resendClient && process.env.RESEND_API_KEY) {
+        resendClient = new Resend(process.env.RESEND_API_KEY);
+    }
+    return resendClient;
+};
 
 const generateOTP = () => {
     return crypto.randomInt(100000, 999999).toString()
 }
 
 const sendOTPEmail = async (email, otp) => {
-    // In production, RESEND_FROM must be set to a verified domain sender
-    // e.g. "UniLoop <noreply@uniloop.me>"
-    const fromAddress = process.env.RESEND_FROM
-    if (!fromAddress) {
-        throw new Error("RESEND_FROM environment variable is not configured. Set it to your verified domain sender (e.g. UniLoop <noreply@yourdomain.me>)")
+    const fromAddress = process.env.RESEND_FROM || "UniLoop <noreply@uniloop.me>";
+    const client = getResendClient();
+    if (!client) {
+        console.error("RESEND_API_KEY is not configured in environment variables.");
+        throw new Error("Email service not configured. Please check RESEND_API_KEY in server environment.");
     }
 
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await client.emails.send({
         from: fromAddress,
         to: [email],
         subject: "UniLoop - Verify Your College Email",
