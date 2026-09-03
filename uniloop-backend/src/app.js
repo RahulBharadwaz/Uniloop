@@ -8,23 +8,58 @@ import morgan from "morgan"
 
 const app = express()
 
-// ─── Security & Performance Middleware ───────────────────────────
-app.use(helmet())
+// ─── 1. CORS (Must be FIRST to handle preflights) ───────────────
+const allowedOrigins = [
+    'https://uniloop.me',
+    'https://www.uniloop.me',
+    'http://localhost:5173',
+    'http://localhost:8000',
+    'http://localhost:3000'
+];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        const envOrigins = process.env.CORS_ORIGIN?.split(',').map(s => s.trim()) || [];
+        const allAllowed = [...allowedOrigins, ...envOrigins];
+        
+        const isAllowed = allAllowed.includes(origin) || 
+                          origin.endsWith('uniloop.me') || 
+                          origin.includes('uniloop.me') || 
+                          origin.endsWith('.vercel.app') || 
+                          origin.includes('localhost');
+        if (isAllowed) {
+            callback(null, true);
+        } else {
+            callback(null, false);
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin']
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
+// ─── 2. Security & Performance ────────────────────────────────────
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+}))
 app.use(compression())
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
 
-// ─── Platform Attribution ─────────────────────────────────────────
+// ─── 3. Platform Attribution ──────────────────────────────────────
 app.use((req, res, next) => {
     res.setHeader("X-Platform", "UniLoop");
     res.setHeader("X-Engineered-By", "Rahul Bharadwaz");
     next();
 })
 
-// ─── Rate Limiting ──────────────────────────────────────────────
-// Prevent brute-force on authentication endpoints
+// ─── 4. Rate Limiting ─────────────────────────────────────────────
 const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,  // 15-minute window
-    max: 10,                    // max 10 OTP requests per window per IP
+    windowMs: 15 * 60 * 1000,
+    max: 20,
     standardHeaders: true,
     legacyHeaders: false,
     message: { 
@@ -33,34 +68,15 @@ const authLimiter = rateLimit({
     }
 })
 
-// General API rate limiter (100 req/min per IP)
 const apiLimiter = rateLimit({
     windowMs: 60 * 1000,
-    max: 100,
+    max: 200,
     standardHeaders: true,
     legacyHeaders: false,
     message: { success: false, message: 'Too many requests. Please slow down.' }
 })
 
 app.use('/api/', apiLimiter)
-
-// ─── CORS ───────────────────────────────────────────────────────
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true);
-        const allowed = process.env.CORS_ORIGIN?.split(',').map(s => s.trim()) || [];
-        const isAllowed = allowed.includes(origin) || 
-                          origin.includes('uniloop.me') || 
-                          origin.includes('vercel.app') || 
-                          origin.includes('localhost');
-        if (isAllowed) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
-}))
 
 // ─── Body Parsing ───────────────────────────────────────────────
 app.use(express.json({limit:"16kb"}))
