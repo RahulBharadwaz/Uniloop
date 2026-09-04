@@ -5,7 +5,7 @@
 <h1 align="center">UniLoop</h1>
 
 <p align="center">
-  <strong>ML-Powered Campus Circular Economy & Sharing Platform</strong><br/>
+  <strong>Intelligent Peer-to-Peer Campus Circular Economy & Sharing Platform</strong><br/>
   A production-grade, real-time marketplace where verified college students rent, sell, give, recover lost items, and fulfill community requests — powered by intelligent recommendations and event-driven architecture.
 </p>
 
@@ -46,7 +46,7 @@ Every semester across Indian and global campuses:
 
 ## Our Solution
 
-**UniLoop** transforms every campus into a self-sustaining circular economy. It combines a **three-mode marketplace**, a **verified lost & found system**, a **community wanted board**, and **ML-powered recommendations** — all scoped by college domain and backed by a behavioral trust engine.
+**UniLoop** transforms every campus into a self-sustaining circular economy. It combines a **three-mode marketplace**, a **verified lost & found system**, a **community wanted board**, and **intelligent recommendations** — all scoped by college domain and backed by a behavioral trust engine.
 
 Unlike generic platforms, UniLoop enforces trust at the **infrastructure level**: OTP-verified campus emails, domain-scoped item visibility, behavioral trust scores, and structured transaction lifecycles with dispute resolution.
 
@@ -94,14 +94,12 @@ UniLoop is not a single shared marketplace. It is a **multi-tenant platform wher
 
 | Capability | What It Does | Why It Matters |
 |:-----------|:-------------|:---------------|
-| **ML-Powered Recommendations** | Scores items using user behavior, category affinity, recency, and trust signals | Personalized discovery — users find what they need faster |
-| **Three-Mode Marketplace** | Rent / Sell / Give in a single listing flow | Covers every sharing use case on campus |
-| **Instant Claim Queues** | Fair, first-come queue system for free items | Eliminates race conditions and favoritism |
-| **Lost & Found + Verification** | Multi-step claim flow with owner-set security questions | Prevents false claims; only verified owners recover items |
-| **Wanted Board + Offers** | Students post needs; peers make competing offers | Demand-driven supply — solves the "I can't find it" problem |
-| **Real-Time Rich Chat** | Text, images, GPS location, meetup proposals — per transaction | No need for external messaging; everything stays in context |
-| **Behavioral Trust Scores** | 0–100 score updated from real transaction outcomes | Self-regulating community; trust is earned, not claimed |
-| **Full Transaction Lifecycle** | Request → Agreement → Active → Return → Complete (with disputes) | Structured accountability from start to finish |
+| **Intelligent Recommendations** | Scores items using user behavior, category affinity, recency, and trust signals | Personalized discovery — users find what they need faster |
+| **Three-Mode Marketplace** | Rent (with dates), Sell (one-time transfer), or Give (free community sharing) | Replaces fragmented WhatsApp/Telegram buy-sell groups |
+| **Verified Lost & Found** | Post lost items; claim found items with secret verification questions | Reduces theft; privacy-preserving recovery |
+| **Community Wanted Board** | Post "looking for" requests; campus peers offer matching items | Demand-driven sharing — get items without waiting for listings |
+| **Behavioral Trust Scoring** | Score dynamically updates (0–100) based on completed deals, speed, and returns | Accountability without friction; rewards good campus citizens |
+| **Real-Time Negotiation** | Socket.IO messaging with in-chat offer creation, acceptance, and decline | Closes deals faster than async messaging |
 | **OTP-Verified College Scoping** | 6-digit OTP via Resend; items scoped to `.edu` / `.ac.in` domains | Only real students; only your campus |
 | **Automated Reminders & Alerts** | Cron-based daily checks for upcoming returns and overdue items | Reduces late returns; protects both parties |
 
